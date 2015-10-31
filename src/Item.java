@@ -1,10 +1,10 @@
 
 public abstract class Item implements Node {
 
-	private int[] pos;
-	private String name;
+	protected int[] pos;
+	protected String name;
 	
-	public int [] getPos(){
+	public int [] getPosition(){
 		return pos;
 	}
 	public String getName(){

@@ -60,6 +60,10 @@ public class Player {
 		inventory.add(x);
 	}
 	
+	public void drinkPotion(int healAMT){
+		HP += healAMT;
+	}
+	
 	/***********
 	 * Getters *
 	 ***********/
