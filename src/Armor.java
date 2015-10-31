@@ -1,5 +1,5 @@
 
-public class Armor {
+public class Armor extends Item {
 	
 	private int armor;
 	private String name;
@@ -16,5 +16,10 @@ public class Armor {
 	public String getName(){
 		return name;
 	}
+
+    @Override
+    public boolean getVisited() {
+        return false;
+    }
 
 }

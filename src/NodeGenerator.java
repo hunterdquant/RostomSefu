@@ -1,14 +1,16 @@
+import java.util.*;
+
 public abstract class NodeGenerator {
 
     private static final int RAND_RANGE = 100;
 
-    private int getLB(int chance) {
+    private static int getLB(int chance) {
         chance = chance == 0 ? 1 : chance;
         Random rand = new Random(System.nanoTime());
         return Math.abs(rand.nextInt() % (RAND_RANGE - chance));
     }
 
-    private int getUB(int lb, int chance) {
+    private static int getUB(int lb, int chance) {
         return lb + chance;
     }
 
@@ -18,7 +20,7 @@ public abstract class NodeGenerator {
      * @param number the value that will determine what type of node is
      * generated.
      */
-    public Node nodeGen(int monsChance, int frndChance, int itemChance) {
+    public static Node nodeGen(int monsChance, int frndChance, int itemChance) {
         // Variables for generator bounds
         int monsChanceLB; // lower bound for monster chance
         int monsChanceUB; // upper bound for monster chance
@@ -56,36 +58,36 @@ public abstract class NodeGenerator {
         }
     }
 
-    private Item itemGen() {
+    private static Item itemGen() {
         Random rand = new Random(System.nanoTime());
         int number = Math.abs(rand.nextInt() % 3);
         switch (number) {
-            case 0: return armorGen(); break;
-            case 1: return potionGen(); break;
-            case 2: return weaponGen(); break;
-            default: System.out.println("no item"); return null; break;
+            case 0: return armorGen();
+            case 1: return potionGen();
+            case 2: return weaponGen();
+            default: return null;
         } 
     }
 
-    private Potion potionGen() {
+    private static Potion potionGen() {
         return new Potion(10);
     }
 
-    private Armor armorGen() {
+    private static Armor armorGen() {
         return new Armor(5, "Shield");
     }
 
-    private Weapon weaponGen() {
+    private static Weapon weaponGen() {
         return new Weapon(10, "Sefu");
     }
 
     //TODO
-    private Monster monsterGen() {
+    private static Monster monsterGen() {
         return null;
     }
 
     //TODO
-    private Friend npcGen() {
+    private static Friend friendGen() {
         return null;
     }
 
