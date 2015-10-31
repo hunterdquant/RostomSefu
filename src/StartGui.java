@@ -1,22 +1,18 @@
-import java.io.File;
-
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-
 /**
  * 
  * @author Hunter Quant <hunterdquant@gmail.com>
  *
  */
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
 public class StartGui extends Application {
 	
 	private RostomSefu rs;
@@ -31,7 +27,6 @@ public class StartGui extends Application {
 
 		primaryStage.setTitle("Rostom Sefu!");
 		GridPane grid = new GridPane();
-		File file = new File("RostomSefu.png");
 		Image img = new Image("RostomSefu.png");
 		ImageView imgView = new ImageView();
 		imgView.setFitWidth(600);
@@ -52,7 +47,6 @@ public class StartGui extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		primaryStage.setOnCloseRequest(event -> {
-			System.out.println("CLaose");
 			primaryStage.close();
 		});
 	}

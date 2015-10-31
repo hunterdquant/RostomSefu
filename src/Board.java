@@ -9,7 +9,6 @@ import java.util.*;
 class Board {
     
 
-    private Node[][] board;   // Array of Nodes
    /**
       * Constructor for the board object.
       *

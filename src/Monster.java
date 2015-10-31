@@ -15,7 +15,7 @@ public class Monster extends NPC {
 		this.name = name;
 		this.movementSpeed = movementSpeed * 1000;
 		dead = false;
-		curPos[] = new int [2];
+		curPos = new int [2];
 	}
 	
 	public void setPosition(int x, int y){
