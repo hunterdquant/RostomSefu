@@ -56,6 +56,10 @@ public class Player {
 		}
 	}
 	
+	public void addToInventory(Item x){
+		inventory.add(x);
+	}
+	
 	/***********
 	 * Getters *
 	 ***********/
