@@ -50,7 +50,6 @@ public class RostomSefu extends Application {
 	}
 	
 	public void moveUp() {
-		System.out.println("up");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0], a[1]+1)) {
 			player.moveUp();
@@ -59,7 +58,6 @@ public class RostomSefu extends Application {
 	}
 
 	public void moveDown() {
-		System.out.println("down");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0], a[1]-1)) {
 			player.moveDown();
@@ -68,7 +66,6 @@ public class RostomSefu extends Application {
 	}
 
 	public void moveLeft() {
-		System.out.println("left");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0]-1, a[1])) {
 			player.moveLeft();
@@ -77,7 +74,6 @@ public class RostomSefu extends Application {
 	}
 
 	public void moveRight() {
-		System.out.println("right");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0]+1, a[1])) {
 			player.moveRight();
@@ -120,14 +116,14 @@ public class RostomSefu extends Application {
 		Node n = board.getNode(a[0], a[1]);
 		if (n instanceof Monster) {
 			player.damagePlayer(5);
-			n = new Empty();
+			board.setNode(a[0], a[1], new Empty());
 			gameGui.setMessage("You killed a monster!");
 		}else if (n instanceof Friend) {
 			gameGui.setMessage("You killed " + ((Friend)n).getName());
-			n = new Empty();
+			board.setNode(a[0], a[1], new Empty());
 		}else if (n instanceof Item) {
 			player.drinkPotion(3);
-			n = new Empty();
+			board.setNode(a[0], a[1], new Empty());
 			gameGui.setMessage("You picked up a potion!");
 		} else if (n instanceof Empty) {
 			gameGui.setMessage("You continue to stumble in the dark!");
