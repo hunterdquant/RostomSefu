@@ -16,4 +16,4 @@ build/
 dist/
 
 # ignore the test folder for now
-test/
+testresport/
