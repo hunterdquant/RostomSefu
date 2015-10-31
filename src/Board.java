@@ -7,7 +7,9 @@
 public class Board {  
 
     private Node[][] board;   // Array of Nodes
-    
+    int xMax = 0;
+    int yMax = 0;
+
     /**
       * Constructor for the board object.
       *
@@ -15,6 +17,10 @@ public class Board {
       * @param y the number of y cells
       */
     public Board(int x, int y, int monsters, int friends, int items) {
+        // Set bounds
+        xMax = x;
+        yMax = y;
+    
         // Instantiate board
         board = new Node[x][y];
 
@@ -27,6 +33,16 @@ public class Board {
             }
         }
     }       
+
+    /**
+      * Checks if a given location is within the bounds of the board.
+      *
+      * @param x x location to check
+      * @param y y location to check
+      */
+    public boolean isValidMove(int x, int y) {
+        return 0 <= x && x < xMax && 0 <= y && y < yMax;
+    }
 
     /**
       * Gets the node at the given x and y coordinates.
