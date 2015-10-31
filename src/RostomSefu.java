@@ -25,6 +25,7 @@ public class RostomSefu extends Application {
 	}
 		
 	public RostomSefu() {
+		board = new Board(20, 20, 10, 10, 10);
 		player = new Player("Keith", 100);
 		gameGui = new GameGui(this);
 		startGui = new StartGui(this);
@@ -49,6 +50,7 @@ public class RostomSefu extends Application {
 	}
 	
 	public void moveUp() {
+		System.out.println("up");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0], a[1]+1)) {
 			player.moveUp();
@@ -57,6 +59,7 @@ public class RostomSefu extends Application {
 	}
 
 	public void moveDown() {
+		System.out.println("down");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0], a[1]-1)) {
 			player.moveDown();
@@ -65,6 +68,7 @@ public class RostomSefu extends Application {
 	}
 
 	public void moveLeft() {
+		System.out.println("left");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0]-1, a[1])) {
 			player.moveLeft();
@@ -73,6 +77,7 @@ public class RostomSefu extends Application {
 	}
 
 	public void moveRight() {
+		System.out.println("right");
 		int [] a = player.getPosition();
 		if (board.isValidMove(a[0]+1, a[1])) {
 			player.moveRight();
@@ -127,5 +132,9 @@ public class RostomSefu extends Application {
 		} else if (n instanceof Empty) {
 			gameGui.setMessage("You continue to stumble in the dark!");
 		}
+	}
+	public String getPos() {
+		int [] a = player.getPosition();
+		return "(" + a[0] + ", " + a[1] + ")";
 	}
 }

@@ -23,12 +23,12 @@ import javafx.stage.Stage;
 public class GameGui extends Application {
 	
 	private RostomSefu rs;
-	Scene scene;
 	private Text name = new Text();
 	private Text health = new Text();
 	private Text defense = new Text();
 	private Text damage = new Text();
 	private Text message = new Text();
+	private Text pos = new Text();
 	
 	public GameGui(RostomSefu rs) {
 		this.rs = rs;
@@ -56,10 +56,14 @@ public class GameGui extends Application {
 		damage.setFill(Color.WHITE);
 		message.setText("You lost your wife, and now you are blind.");
 		message.setFill(Color.WHITE);
+		pos.setText("Pos: " + rs.getPos());
+		pos.setFill(Color.WHITE);
+		
 		grid.add(name, 0, 0);
 		grid.add(health, 0, 1);
 		grid.add(defense, 0, 2);
 		grid.add(damage,  0,  3);
+		grid.add(pos, 0, 4);
 		
 		HBox hb = new HBox();
 		hb.getChildren().add(message);
@@ -72,22 +76,30 @@ public class GameGui extends Application {
 		root.getChildren().addAll(stackPane, grid, hb);
 		
 		stackPane.setStyle("-fx-background-color: black");
-		scene = new Scene(root, 800, 600);
+		Scene scene = new Scene(root, 800, 600);
 		
 		 
 		scene.setOnKeyPressed( event -> {
             switch (event.getCode()) {
                  case W: {
                  	rs.moveUp();
+                 	pos.setText("Pos: " + rs.getPos());
+                 	break;
                  }
                  case S: {
                    	rs.moveDown();
+                   	pos.setText("Pos: " + rs.getPos());
+                   	break;
                  }
                  case A: {
                 	rs.moveLeft();
+                	pos.setText("Pos: " + rs.getPos());
+                	break;
                  }
                  case D: {
                    	rs.moveRight();
+                   	pos.setText("Pos: " + rs.getPos());
+                   	break;
                  }
             }
 		});
@@ -110,8 +122,5 @@ public class GameGui extends Application {
 	public void setMessage(String s) {
 		message.setText(s);
 	}
-	
-	public Scene getScene() {
-		return scene;
-	}
+
 }
