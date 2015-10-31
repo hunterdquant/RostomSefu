@@ -16,7 +16,7 @@ public class RostomSefu extends Application {
 	private Stage primaryStage;
 	 
 	private Player player;
-	private Board board;
+	//private Board board;
 	
 	
 	public static void main(String[] args) {
@@ -45,44 +45,25 @@ public class RostomSefu extends Application {
 		      }
 		  };
 
-		 
 		  task.run();
-		  
-		  gameGui.getScene().setOnKeyPressed(event -> {
-	                switch (event.getCode()) {
-	                    case W: {
-	                    	moveUp();
-	                    }
-	                    case S: {
-	                    	moveDown();
-	                    }
-	                    case A: {
-	                    	moveLeft();
-	                    }
-	                    case D: {
-	                    	moveRight();
-	                    }
-	                }
-	            });
 	}
 	
-	private void moveUp() {
-		// TODO Auto-generated method stub
+	public void moveUp() {
 		
 	}
 
-	private void moveDown() {
-		// TODO Auto-generated method stub
+	public void moveDown() {
+
 		
 	}
 
-	private void moveLeft() {
-		// TODO Auto-generated method stub
+	public void moveLeft() {
+
 		
 	}
 
-	private void moveRight() {
-		// TODO Auto-generated method stub
+	public void moveRight() {
+
 		
 	}
 

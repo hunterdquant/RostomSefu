@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -66,10 +67,32 @@ public class GameGui extends Application {
 		hb.setLayoutX(250);
 		hb.setLayoutY(250);
 		message.setTextAlignment(TextAlignment.CENTER);
-		root.getChildren().addAll(grid, hb);
+		
+		//Button butt = new Button("Interact");
+		//root.getChildren().addAll(grid, hb, butt);
+		
 		
 		stackPane.setStyle("-fx-background-color: black");
 		scene = new Scene(root, 800, 600);
+		
+		  
+		scene.setOnKeyPressed( event -> {
+            switch (event.getCode()) {
+                 case W: {
+                 	rs.moveUp();
+                 }
+                 case S: {
+                   	rs.moveDown();
+                 }
+                 case A: {
+                	rs.moveLeft();
+                 }
+                 case D: {
+                   	rs.moveRight();
+                 }
+            }
+		});
+	
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
