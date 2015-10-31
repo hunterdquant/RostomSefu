@@ -41,6 +41,23 @@ public class Player {
 		pos[1] = y;
 	}
 	
+	
+	public void moveUp() {
+		pos[1]++;
+	}
+
+	public void moveDown() {
+		pos[1]--;
+	}
+
+	public void moveLeft() {
+		pos[0]--;
+	}
+
+	public void moveRight() {
+		pos[0]++;
+	}
+	
 	public void damagePlayer(int x){
 		HP = HP - x;
 		if(HP < 0)
