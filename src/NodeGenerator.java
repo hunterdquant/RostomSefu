@@ -3,6 +3,10 @@ import java.util.*;
 public abstract class NodeGenerator {
 
     private static final int RAND_RANGE = 100;
+    private static Thread p;
+    private static Thread o;
+    private static int maxX;
+    private static int maxY;
 
     private static int getLB(int chance) {
         chance = chance == 0 ? 1 : chance;
@@ -13,14 +17,18 @@ public abstract class NodeGenerator {
     private static int getUB(int lb, int chance) {
         return lb + chance;
     }
-
+    
     /**
      * Generates a pseudo-random node for the game board.
      *
      * @param number the value that will determine what type of node is
      * generated.
      */
-    public static Node nodeGen(int monsChance, int frndChance, int itemChance) {
+    public static Node nodeGen(int monsChance, int frndChance, int itemChance, int x, int y) {
+    	//hold the bounds for the monster and friend classes
+    	maxX = x;
+    	maxY = y;
+    	
         // Variables for generator bounds
         int monsChanceLB; // lower bound for monster chance
         int monsChanceUB; // upper bound for monster chance
@@ -43,6 +51,7 @@ public abstract class NodeGenerator {
         // Get the number that will determine which node is generated
         int number = Math.abs(rand.nextInt() % RAND_RANGE);
 
+        
         // -- MONSTER GEN --
         if (monsChanceLB < number && number < monsChanceUB) {
             return monsterGen();
@@ -83,12 +92,18 @@ public abstract class NodeGenerator {
 
     //TODO
     private static Monster monsterGen() {
-        return null;
+    		Monster a = new Monster(1000,"Goblin", 100, 10,maxX, maxY);
+    		p = new Thread(a);
+    		p.start();
+    		return a;
     }
 
     //TODO
     private static Friend friendGen() {
-        return null;
+    	Friend a = new Friend("Little Girl", 100, 10, maxX, maxY);
+		o = new Thread(a);
+		o.start();
+		return a;
     }
 
 }
