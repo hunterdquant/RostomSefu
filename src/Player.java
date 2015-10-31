@@ -16,8 +16,8 @@ public class Player {
 		HP = Hp;
 		dead = false;
 		
-		equiptable = new HashMap(8);
-		inventory = new ArrayList();
+		equiptable = new HashMap<Armor, String>(8);
+		inventory = new ArrayList<Item>();
 		
 		damage = 1;
 		defence = 1;

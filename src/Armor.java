@@ -1,5 +1,5 @@
 
-public abstract class Armor {
+public class Armor {
 	
 	private int armor;
 	private String name;
