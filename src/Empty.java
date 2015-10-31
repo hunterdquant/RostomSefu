@@ -1,12 +1,9 @@
 
 public class Empty implements Node {
 
-	private int[] position;
 	private boolean visited;
 	
-	public Empty(int x, int y){
-		position[0] = x;
-		position[1] = y;
+	public Empty(){
 		
 		visited = false;
 		
