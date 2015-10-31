@@ -7,19 +7,56 @@ public class Friend extends NPC {
 	private int movementSpeed;
 	private boolean dead;
 	private int[] curPos; //current position
+	private int maxX;
+	private int maxY;
 	
-	public Friend(String name, int hp, int movementSpeed){
+	public Friend(String name, int hp, int movementSpeed, int x, int y){
 		this.HP = hp;
 		this.name = name;
 		this.movementSpeed = movementSpeed * 1000;
 		dead = false;
 		curPos = new int [2];
 		
+		maxX = x;
+		maxY = y;
 	}
 	
 	public void setPosition(int x, int y){
 		curPos[0] = x;
 		curPos[1] = y;
+	}
+	
+	private void move(){
+		Random rand = new Random();
+		int choice = rand.nextInt(4);
+		
+		switch(choice){
+		case 0: //north
+			if(curPos[1] == 0)
+				break;
+			else
+				curPos[1]++;
+			break;
+		case 1: //east
+			if(curPos[0] == maxX - 1)
+				break;
+			else 
+				curPos[0]++;
+			break;
+		case 2: //south
+			if(curPos[1] == maxY - 1)
+				break;
+			else curPos[1]--;
+			break;
+		case 3: //west
+			if(curPos[0] == 0)
+				break;
+			else 
+				curPos[0]--;
+			break;
+		default : break;
+		}
+		
 	}
 	
 	public boolean getVisited() {
@@ -30,16 +67,6 @@ public class Friend extends NPC {
 		waitToMove();
 	}
 
-	private void move(){
-		Random rand = new Random();
-		int choice = rand.nextInt(4);
-		
-		switch(choice){
-		case 0: //north
-			
-		}
-		
-	}
 	
 	private void waitToMove(){
 		while(true){
