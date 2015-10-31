@@ -9,5 +9,6 @@ public abstract class Item implements Node {
 	}
 	public String getName(){
 		return name;
+		
 	}
 }

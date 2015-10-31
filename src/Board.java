@@ -1,27 +1,20 @@
 /** Board.java
   * ==========
   * Main movement grid of the game world.
-  * This will contain all of the nodes for the game.
   */
 
-import java.util.*;
-
-class Board {
+public class Board {
     
 
-   /**
+    private Node[][] board;   // Array of Nodes
+    
+    /**
       * Constructor for the board object.
       *
       * @param x the number of x cells
       * @param y the number of y cells
       */
     public Board(int x, int y, int monsters, int friends, int items) {
- 
-        // Set the default chances for each node type
-        setMonsterChance(monsters);
-        setFriendChance(friends);
-        setItemChance(items);
-
         // Instantiate board
         board = new Node[x][y];
 
@@ -52,8 +45,7 @@ class Board {
       * @param x the x coordinate
       * @param y the y coordinate
       */
-    public void setNode(Node n, int x, int y) {
+    public void setNode(int x, int y, Node n) {
         board[x][y] = n;
     }
-
 }
