@@ -4,9 +4,11 @@
   * This will contain all of the nodes for the game.
   */
 
+import java.util.*;
+
 class Board {
 
-    private Node[] board;
+    private Node[][] board; // Array of Nodes
 
     /**
       * Constructor for the board object.
@@ -15,6 +17,8 @@ class Board {
       * @param y the number of y cells
       */
     public Board(int x, int y) {
+        Random rand = new Random(9001);
+
         // Iterate through x 
         for (int i = 0; i < x; i++) {
             // Iterate through y
@@ -24,7 +28,7 @@ class Board {
             }
         }
     }
-
+    
     /**
       * Gets the node at the given x and y coordinates.
       *
