@@ -1,10 +1,10 @@
 /** Board.java
+
   * ==========
   * Main movement grid of the game world.
   */
 
-public class Board {
-    
+public class Board {  
 
     private Node[][] board;   // Array of Nodes
     
@@ -23,7 +23,7 @@ public class Board {
             // Iterate through y
             for (int j = 0; j < y; j++) {
                 // Assign a generated node to x,y
-                board[i][j] = NodeGenerator.nodeGen(monsters, friends, items);
+                board[i][j] = NodeGenerator.nodeGen(monsters, friends, items, x, y);
             }
         }
     }       
