@@ -6,10 +6,11 @@
 
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -43,8 +44,7 @@ public class GameGui extends Application {
 		StackPane stackPane = new StackPane();
 		
 		Canvas canvas = new Canvas(800, 600);
-		stackPane.getChildren().add(canvas);
-		root.getChildren().add(stackPane);
+		
 		
 		name.setText("Name: " + rs.getPlayerName());
 		name.setFill(Color.WHITE);
@@ -66,16 +66,15 @@ public class GameGui extends Application {
 		hb.setAlignment(Pos.CENTER);
 		hb.setLayoutX(250);
 		hb.setLayoutY(250);
-		message.setTextAlignment(TextAlignment.CENTER);
+		message.setTextAlignment(TextAlignment.CENTER);		
 		
-		//Button butt = new Button("Interact");
-		//root.getChildren().addAll(grid, hb, butt);
-		
+		stackPane.getChildren().add(canvas);
+		root.getChildren().addAll(stackPane, grid, hb);
 		
 		stackPane.setStyle("-fx-background-color: black");
 		scene = new Scene(root, 800, 600);
 		
-		  
+		 
 		scene.setOnKeyPressed( event -> {
             switch (event.getCode()) {
                  case W: {
