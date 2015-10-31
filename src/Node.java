@@ -5,7 +5,9 @@
 
 public interface Node {
 
-	public int [] pos = new int[2];
+	int [] pos = new int[2];
+	boolean visited = false;
 	
 	public int[] getPosition();
+	public boolean getVisited();
 }
