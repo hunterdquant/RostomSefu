@@ -6,13 +6,13 @@
  */
 
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+
 import javafx.stage.Stage;
 
 public class RostomSefu extends Application {
+	
+	private StartGui startGui;
+	private GameGui gameGui;
 	
 	
 	public static void main(String[] args) {
@@ -22,21 +22,17 @@ public class RostomSefu extends Application {
 		while (playing) {
 		} 
 	}
-
+	
+	public RostomSefu() {
+		gameGui = new GameGui(this);
+		startGui = new StartGui(this);
+	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
-		primaryStage.setTitle("Rostom Sefu!");
-		Pane root = new Pane();
-		StackPane stackPane = new StackPane();
-		Canvas canvas = new Canvas(800, 600);
-		stackPane.getChildren().add(canvas);
-		root.getChildren().add(stackPane);
-		stackPane.setStyle("-fx-background-color: black");
-		Scene scene = new Scene(root, 800, 600);
-		primaryStage.setResizable(false);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		startGui.start(primaryStage);
+		gameGui.start(primaryStage);
 	}
+
+
 }
