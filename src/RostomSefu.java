@@ -6,7 +6,7 @@
  */
 
 import javafx.application.Application;
-
+import javafx.animation.AnimationTimer;
 import javafx.stage.Stage;
 
 public class RostomSefu extends Application {
@@ -32,14 +32,13 @@ public class RostomSefu extends Application {
 	public void start(Stage stage) throws Exception {
 		primaryStage = stage;
 		startGui.start(primaryStage);
-		//play();
-	}
-	
-	private void play() {
-		boolean playing = true;
-		while (playing) {
-			
-		}
+		new AnimationTimer()
+        {
+            public void handle(long currentNanoTime)
+            {
+                
+            }
+        }.start();
 	}
 	
 	public void changeToGameGui () {
@@ -55,7 +54,19 @@ public class RostomSefu extends Application {
 		player = new Player(name, 100);
 	}
 	
-	public Player getPlayer() {
-		return player;
+	public String getPlayerName() {
+		return player.getName();
+	}
+	
+	public String getPlayerHealth() {
+		return "" + player.getHealth();
+	}
+	
+	public String getPlayerDefense() {
+		return "" + player.getDefense();
+	}
+	
+	public String getPlayerDamage() {
+		return "" + player.getDamage();
 	}
 }

@@ -6,7 +6,7 @@ public class Player {
 	private int HP; //health of the player
 	private int[] pos; //the position of the player
 	private int damage; //the damage the player can deal
-	private int defence;
+	private int defense;
 	private HashMap<Armor, String> equiptable;
 	private List<Item> inventory;
 	private boolean dead;
@@ -20,7 +20,7 @@ public class Player {
 		inventory = new ArrayList<Item>();
 		
 		damage = 1;
-		defence = 1;
+		defense = 1;
 		pos = new int[2];
 	}
 	
@@ -30,7 +30,7 @@ public class Player {
 		for(Armor b : a){
 			x += b.getArmor();
 		}
-		defence = x;
+		defense = x;
 	}
 	
 	/*
@@ -88,8 +88,8 @@ public class Player {
 		return inventory;
 	}
 	
-	public int getDefence(){
-		return defence;
+	public int getDefense(){
+		return defense;
 	}
 	
 	public HashMap<Armor, String> getEquiptedItems(){
