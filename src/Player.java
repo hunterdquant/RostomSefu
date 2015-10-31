@@ -33,7 +33,6 @@ public class Player {
 		defence = x;
 	}
 	
-	
 	/*
 	 * setter
 	 */
@@ -46,6 +45,15 @@ public class Player {
 		HP = HP - x;
 		if(HP < 0)
 			dead = true;
+	}
+	
+	public void equiptAnItem(Armor x){
+		if(equiptable.size() > 8){
+			
+		}else{
+			equiptable.put(x, x.getName());
+			recalcdefence();
+		}
 	}
 	
 	/***********
