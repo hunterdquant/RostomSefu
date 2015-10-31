@@ -14,3 +14,6 @@ hs_err_pid*
 # ignore build and dist folders
 build/
 dist/
+
+# ignore the test folder for now
+test/
