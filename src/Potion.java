@@ -2,9 +2,11 @@
 public class Potion extends Item {
 	
 	private int healAMT;
+	private String name;
 	
 	public Potion(int amt){
 		healAMT = amt;
+		name = "Potion";
 	}
 	
 	@Override
@@ -14,7 +16,7 @@ public class Potion extends Item {
 	
 	@Override
 	public String getName() {
-		return super.name;
+		return name;
 	}
 	
 	public boolean getVisited() {
