@@ -7,4 +7,7 @@ public abstract class Item implements Node {
 	public int [] getPos(){
 		return pos;
 	}
+	public String getName(){
+		return name;
+	}
 }
