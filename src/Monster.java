@@ -9,8 +9,10 @@ public class Monster extends NPC {
 	private boolean dead;
 	private boolean destroy;
 	private int[] curPos; //current position
+	private int maxX;
+	private int maxY;
 	
-	public Monster(int damage, String name, int hp, int movementSpeed){
+	public Monster(int damage, String name, int hp, int movementSpeed, int maxX, int maxY){
 		this.damage = damage;
 		this.HP = hp;
 		this.name = name;
@@ -18,6 +20,9 @@ public class Monster extends NPC {
 		dead = false;
 		curPos = new int [2];
 		destroy = false;
+		
+		this.maxX = maxX;
+		this.maxY = maxY;
 	}
 	
 	public void run() {
@@ -30,7 +35,29 @@ public class Monster extends NPC {
 		
 		switch(choice){
 		case 0: //north
-			
+			if(curPos[1] == 0)
+				break;
+			else
+				curPos[1]++;
+			break;
+		case 1: //east
+			if(curPos[0] == maxX - 1)
+				break;
+			else 
+				curPos[0]++;
+			break;
+		case 2: //south
+			if(curPos[1] == maxY - 1)
+				break;
+			else curPos[1]--;
+			break;
+		case 3: //west
+			if(curPos[0] == 0)
+				break;
+			else 
+				curPos[0]--;
+			break;
+		default : break;
 		}
 		
 	}
