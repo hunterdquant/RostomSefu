@@ -9,7 +9,6 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.DialogPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -22,6 +21,7 @@ import javafx.stage.Stage;
 public class GameGui extends Application {
 	
 	private RostomSefu rs;
+	Scene scene;
 	private Text name = new Text();
 	private Text health = new Text();
 	private Text defense = new Text();
@@ -69,7 +69,7 @@ public class GameGui extends Application {
 		root.getChildren().addAll(grid, hb);
 		
 		stackPane.setStyle("-fx-background-color: black");
-		Scene scene = new Scene(root, 800, 600);
+		scene = new Scene(root, 800, 600);
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
@@ -87,5 +87,9 @@ public class GameGui extends Application {
 	}
 	public void setMessage(String s) {
 		message.setText(s);
+	}
+	
+	public Scene getScene() {
+		return scene;
 	}
 }
