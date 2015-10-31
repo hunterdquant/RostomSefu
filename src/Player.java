@@ -76,7 +76,7 @@ public class Player {
 		return defence;
 	}
 	
-	public HashMap<Item, String> getEquiptedItems(){
+	public HashMap<Armor, String> getEquiptedItems(){
 		return equiptable;
 	}
 	
