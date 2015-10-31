@@ -50,7 +50,6 @@ public abstract class NodeGenerator {
 
         // Get the number that will determine which node is generated
         int number = Math.abs(rand.nextInt() % RAND_RANGE);
-
         
         // -- MONSTER GEN --
         if (monsChanceLB < number && number < monsChanceUB) {
@@ -63,7 +62,7 @@ public abstract class NodeGenerator {
             return itemGen();
             // -- EMPTY GEN --
         } else {
-            return null;
+            return new Empty();
         }
     }
 
