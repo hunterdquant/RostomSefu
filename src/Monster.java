@@ -7,6 +7,7 @@ public class Monster extends NPC {
 	private String name;
 	private int movementSpeed;
 	private boolean dead;
+	private boolean destroy;
 	private int[] curPos; //current position
 	
 	public Monster(int damage, String name, int hp, int movementSpeed){
@@ -15,17 +16,10 @@ public class Monster extends NPC {
 		this.name = name;
 		this.movementSpeed = movementSpeed * 1000;
 		dead = false;
-		curPos[] = new int [2];
+		curPos = new int [2];
+		destroy = false;
 	}
 	
-	public void setPosition(int x, int y){
-		
-	}
-	
-	public boolean getVisited() {
-		return false;
-	}
-
 	public void run() {
 		waitToMove();
 	}
@@ -46,6 +40,8 @@ public class Monster extends NPC {
 			try {
 				if(dead)
 					break;
+				if(destroy)
+					break;
 				
 				Thread.sleep(movementSpeed);
 				move();
@@ -56,4 +52,46 @@ public class Monster extends NPC {
 		}
 	}
 	
+	/*
+	 * Setters
+	 */
+	
+	public void setPosition(int x, int y){
+		curPos[0] = x;
+		curPos[1] = y;
+	}
+	
+	public void destroyMonster(){
+		destroy = true;
+	}
+	
+	
+	/*
+	 * getters
+	 */
+	
+	public int getDamage(){
+		return damage;
+	}
+	
+	public int getHP(){
+		return HP;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public boolean isDead(){
+		return dead;
+	}
+	
+	public int[] getPosition(){
+		return curPos;
+	}	
+	
+	public boolean getVisited() {
+		return false;
+	}
+
 }

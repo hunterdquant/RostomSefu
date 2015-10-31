@@ -17,3 +17,4 @@ dist/
 
 # ignore the test folder for now
 testresport/
+/bin/
