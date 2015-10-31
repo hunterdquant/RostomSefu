@@ -25,6 +25,10 @@ public class Monster extends NPC {
 		this.maxY = maxY;
 	}
 	
+	public void damageMonster(int x){
+		HP -= x;
+	}
+	
 	public void run() {
 		waitToMove();
 	}
