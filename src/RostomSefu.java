@@ -13,6 +13,7 @@ public class RostomSefu extends Application {
 	
 	private StartGui startGui;
 	private GameGui gameGui;
+	private Stage primaryStage;
 	
 	
 	public static void main(String[] args) {
@@ -29,10 +30,21 @@ public class RostomSefu extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage stage) throws Exception {
+		primaryStage = stage;
 		startGui.start(primaryStage);
-		gameGui.start(primaryStage);
 	}
-
-
+	
+	public void changeToGameGui () {
+		try {
+			gameGui.start(primaryStage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+		
+	
+	public void setName(String name) {
+		
+	}
 }
