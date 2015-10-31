@@ -3,12 +3,11 @@
  * @author angry-avacado
  *
  */
-public abstract class NPC extends Node implements Runnable {
+public abstract class NPC implements Node, Runnable {
 
 	private int damage;
 	private int [] pos;
 	private boolean agressive;
-	
 	
 	public int [] getPosition(){
 		return pos;

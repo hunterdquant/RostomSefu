@@ -3,8 +3,9 @@
   * Abstract class for all board locations. 
   */
 
-public abstract class Node {
+public interface Node {
 
-    
-
+	public int [] pos = new int[2];
+	
+	public int[] getPosition();
 }
