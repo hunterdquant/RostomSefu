@@ -40,7 +40,7 @@ public class StartGui extends Application {
 		Button butt = new Button("Start");
 		TextField tf = new TextField("Keith");
 		butt.setOnAction(event -> {
-			rs.setName(tf.getText());
+			rs.initPlayer(tf.getText());
 			rs.changeToGameGui();
 		});
 		grid.add(imgView, 0, 0);
@@ -51,5 +51,9 @@ public class StartGui extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		primaryStage.setOnCloseRequest(event -> {
+			System.out.println("CLaose");
+			primaryStage.close();
+		});
 	}
 }

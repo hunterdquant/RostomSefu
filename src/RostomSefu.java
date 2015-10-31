@@ -14,14 +14,13 @@ public class RostomSefu extends Application {
 	private StartGui startGui;
 	private GameGui gameGui;
 	private Stage primaryStage;
+	 
+	private Player player;
 	
 	
 	public static void main(String[] args) {
 		
 		launch(args);
-		boolean playing = true;
-		while (playing) {
-		} 
 	}
 	
 	public RostomSefu() {
@@ -33,6 +32,14 @@ public class RostomSefu extends Application {
 	public void start(Stage stage) throws Exception {
 		primaryStage = stage;
 		startGui.start(primaryStage);
+		//play();
+	}
+	
+	private void play() {
+		boolean playing = true;
+		while (playing) {
+			
+		}
 	}
 	
 	public void changeToGameGui () {
@@ -44,7 +51,11 @@ public class RostomSefu extends Application {
 	}
 		
 	
-	public void setName(String name) {
-		
+	public void initPlayer(String name) {
+		player = new Player(name, 100);
+	}
+	
+	public Player getPlayer() {
+		return player;
 	}
 }
