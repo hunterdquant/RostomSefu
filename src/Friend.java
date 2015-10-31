@@ -21,6 +21,10 @@ public class Friend extends NPC {
 		maxY = y;
 	}
 	
+	public void damageMonster(int x){
+		HP -= x;
+	}
+	
 	public void setPosition(int x, int y){
 		curPos[0] = x;
 		curPos[1] = y;
