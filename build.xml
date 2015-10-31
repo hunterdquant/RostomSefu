@@ -1,13 +1,14 @@
-<project name="JUNIT" default="main" basedir=".">
+<project name="RostomSefu" default="main" basedir=".">
 <!-- Sets variables which can later be used. -->
         <!-- The value of a property is accessed via ${} -->
         <property name="src.dir" location="src" />
         <property name="test.dir" location="tests" />
+        <property name="build.dir" location="build" />
+        <property name="build.test.dir" location="build/tests" />
+        <property name="dist.dir" location="dist"/>
+        <property name="dist.jar.dir" location="dist/jar"/>
 
-        <property name="build.dir" location="bin" />
-        <property name="build.test.dir" location="bin/tests" />
-
-        <!-- Variables used for JUnit testin -->
+        <!-- Variables used for JUnit testing -->
 
         <property name="test.report.dir" location="testreport" />
 
@@ -18,10 +19,23 @@
             <pathelement location="${build.dir}" />
         </path>
 
+        <target name="jar" >
+            <mkdir dir="${dist.jar.dir}"/>
+            <jar destfile="${dist.jar.dir}/RostomSefu.jar" basedir="${build.dir}">
+                <manifest>
+                    <attribute name="Main-Class" value="RostomSefu"/>
+                </manifest>
+            </jar>
+        </target>
+
+        <target name="run" depends="jar">
+            <java classname="RostomSefu" classpath="${dist.jar.dir}/RostomSefu.jar"/>
+        </target>
 
         <!-- Deletes the existing build, docs and dist directory-->
         <target name="clean">
             <delete dir="${build.dir}" />
+            <delete dir="${dist.dir}" />
             <delete dir="${test.report.dir}" />
         </target>
 
